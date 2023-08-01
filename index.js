@@ -1,5 +1,8 @@
-const finalResult = JSON.parse(localStorage.getItem('finalResult'));
-
+const finalResult = {
+    win: 0,
+    lose: 0,
+    tie: 0
+};
 
 function playGame(playerMove) {
     const computerMove = pickComputerMove();
@@ -52,8 +55,6 @@ function playGame(playerMove) {
             result = 'Tie';
         }
     }
-
-    localStorage.setItem('finalResult', JSON.stringify(finalResult));
 
     alert('You picked ' + playerMove + '. computer picked ' + computerMove + ' ' + result + '\n' +
         'Wins ' + finalResult.win + ',  Losse: ' + finalResult.lose + ', Ties: ' + finalResult.tie)
