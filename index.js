@@ -1,8 +1,5 @@
-const finalResult = {
-    win: 0,
-    lose: 0,
-    tie: 0
-};
+const finalResult = JSON.parse(localStorage.getItem('finalResult'));
+
 
 function playGame(playerMove) {
     const computerMove = pickComputerMove();
@@ -56,6 +53,8 @@ function playGame(playerMove) {
         }
     }
 
+    localStorage.setItem('finalResult', JSON.stringify(finalResult));
+
     alert('You picked ' + playerMove + '. computer picked ' + computerMove + ' ' + result + '\n' +
         'Wins ' + finalResult.win + ',  Losse: ' + finalResult.lose + ', Ties: ' + finalResult.tie)
 
@@ -86,6 +85,3 @@ function resetScore() {
     finalResult.tie = 0;
     alert('Wins ' + finalResult.win + ',  Losse: ' + finalResult.lose + ', Ties: ' + finalResult.tie);
 }
-
-
-
